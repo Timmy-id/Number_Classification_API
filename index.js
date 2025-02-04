@@ -30,7 +30,7 @@ app.get('/api/classify-number', async (req, res) => {
 
     const properties = []
 
-    const sumDigits = number.toString().split('').reduce((acc, num) => acc + parseInt(num), 0)
+    const sumDigits = Math.abs(number).toString().split('').reduce((acc, num) => acc + parseInt(num), 0)
 
     const isArmstrongNumber = isArmstrong(number) ? 'armstrong' : null
     const checkIsOddOrEven = number % 2 !== 0 ? 'odd' : 'even'
