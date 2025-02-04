@@ -32,7 +32,7 @@ app.get('/api/classify-number', async (req, res) => {
 
     const sumDigits = Math.abs(number).toString().split('').reduce((acc, num) => acc + parseInt(num), 0)
 
-    const isArmstrongNumber = isArmstrong(Math.abs(number)) ? 'armstrong' : null
+    const isArmstrongNumber = isArmstrong(number) ? 'armstrong' : null
     const checkIsOddOrEven = number % 2 !== 0 ? 'odd' : 'even'
     const is_prime = isPrimeNumber(number)
 
