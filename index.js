@@ -18,12 +18,12 @@ app.get('/api/classify-number', async (req, res) => {
     if (!isInteger) {
         return res.status(400)
             .json({
-                number,
+                number: 'alphabet',
                 error: true
             })
     }
 
-    const NUMBERS_API_URL = `http://numbersapi.com/${Math.abs(number)}/math`
+    const NUMBERS_API_URL = `http://numbersapi.com/${number}/math`
 
     const funFact = await fetch(NUMBERS_API_URL)
     const data = await funFact.text()
@@ -49,7 +49,7 @@ app.get('/api/classify-number', async (req, res) => {
             is_prime,
             "is_perfect": is_perfect,
             properties,
-            "digit_sum": sumDigits,
+            "digit_sum": number.startsWith('-') ? parseInt("-" + sumDigits.toString()) : sumDigits,
             "fun_fact": data
         })
 })
