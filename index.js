@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import fetch from 'node-fetch'
 
-import { isArmstrong, isPrimeNumber } from './helpers.js'
+import { isArmstrong, isPrimeNumber, isPerfectNumber } from './helpers.js'
 
 const app = express()
 
@@ -33,8 +33,9 @@ app.get('/api/classify-number', async (req, res) => {
     const sumDigits = Math.abs(number).toString().split('').reduce((acc, num) => acc + parseInt(num), 0)
 
     const isArmstrongNumber = isArmstrong(number) ? 'armstrong' : null
-    const checkIsOddOrEven = number % 2 !== 0 ? 'odd' : 'even'
-    const is_prime = isPrimeNumber(number)
+    const checkIsOddOrEven = parseInt(number) % 2 !== 0 ? 'odd' : 'even'
+    const is_prime = isPrimeNumber(parseInt(number))
+    const is_perfect = isPerfectNumber(parseInt(number))
 
     if (isArmstrongNumber) {
         properties.push(isArmstrongNumber, checkIsOddOrEven)
@@ -46,7 +47,7 @@ app.get('/api/classify-number', async (req, res) => {
         .json({
             "number": parseInt(number),
             is_prime,
-            "is_perfect": false,
+            "is_perfect": is_perfect,
             properties,
             "digit_sum": sumDigits,
             "fun_fact": data
