@@ -4,7 +4,7 @@ Number_Classification_API
 ## Introduction
 
 This project documents a public API that takes a number and returns interesting mathematical properties about it, along with a fun fact.
-The live link for the project can be found [here](https://number-classification-api-ten.vercel.app/api/classify-number?number=371)
+The live link for the project can be found [here](https://number-classification-api-ten.vercel.app/api/classify-number)
  
 ## Tech Stack (Dependencies)
 
