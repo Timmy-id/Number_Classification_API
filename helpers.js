@@ -1,5 +1,5 @@
 export const isArmstrong = (number) => {
-    const sum = Math.abs(number).split('').reduce((acc, num) => acc + Math.pow(parseInt(num), number.length), 0)
+    const sum = Math.abs(number).toString().split('').reduce((acc, num) => acc + Math.pow(parseInt(num), number.length), 0)
     
     return sum == number
 }
