@@ -23,7 +23,7 @@ app.get('/api/classify-number', async (req, res) => {
             })
     }
 
-    const NUMBERS_API_URL = `http://numbersapi.com/${number}/math`
+    const NUMBERS_API_URL = `http://numbersapi.com/${Math.abs(number)}/math`
 
     const funFact = await fetch(NUMBERS_API_URL)
     const data = await funFact.text()
