@@ -15,7 +15,7 @@ app.get('/api/classify-number', async (req, res) => {
 
     const isInteger = Number.isInteger(Number(number))
 
-    if (!isInteger) {
+    if (!isInteger || number === '') {
         return res.status(400)
             .json({
                 number,
