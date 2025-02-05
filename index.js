@@ -43,11 +43,11 @@ app.get('/api/classify-number', async (req, res) => {
         properties.push(checkIsOddOrEven);
     }
 
-    return res.status(200)
+    res.status(200)
         .json({
             "number": parseInt(number),
             is_prime,
-            "is_perfect": is_perfect,
+            is_perfect,
             properties,
             "digit_sum": number.startsWith('-') ? parseInt("-" + sumDigits.toString()) : sumDigits,
             "fun_fact": data
