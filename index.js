@@ -13,7 +13,7 @@ app.use(cors())
 app.get('/api/classify-number', async (req, res) => {
     const { number } = req.query
 
-    const isInteger = Number.isInteger(parseInt(number))
+    const isInteger = Number.isInteger(Number(number))
 
     if (!isInteger) {
         return res.status(400)
